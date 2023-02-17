@@ -9,9 +9,9 @@ const events = [
         actually an NPC inside a brutal, open world video game",
         hostName: 'Sudhamsh Mondrati',
         category: 'Action',
-        startTime: new DateTime.fromObject({year: 2022, month:2, day: 20, hour:10, minute: 30})
+        startTime: DateTime.fromObject({year: 2022, month:2, day: 20, hour:10, minute: 30})
         .toLocaleString(DateTime.DATETIME_FULL.DATETIME_MED),
-        endTime: new DateTime.fromObject({year: 2022, month:2, day: 20, hour:13, minute: 0})
+        endTime: DateTime.fromObject({year: 2022, month:2, day: 20, hour:13, minute: 0})
         .toLocaleString(DateTime.DATETIME_FULL.DATETIME_MED),
         image: 'free-guy.png'
     },
@@ -20,10 +20,10 @@ const events = [
         title: 'Movie 2',
         details: "A second movie",
         hostName: 'Sudhamsh Mondrati',
-        startTime: new DateTime.fromObject({year: 2022, month:2, day: 24, hour:7, minute: 30})
+        startTime: DateTime.fromObject({year: 2022, month:2, day: 24, hour:7, minute: 30})
         .toLocaleString(DateTime.DATETIME_FULL.DATETIME_MED),
         category: 'Romance',
-        endTime: new DateTime.fromObject({year: 2022, month:2, day: 24, hour:9, minute: 30})
+        endTime: DateTime.fromObject({year: 2022, month:2, day: 24, hour:9, minute: 30})
         .toLocaleString(DateTime.DATETIME_FULL.DATETIME_MED),
         image: 'movie.png'
     },

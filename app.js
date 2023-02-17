@@ -24,7 +24,7 @@ app.use(methodOverride('_method'))
 // set up routes
 app.get('/', (req, res) =>
 {
-    res.render('index');
+    res.render('./main/index');
 });
 
 app.use('/', mainRoutes);
@@ -48,7 +48,7 @@ app.use((err, req, res, next) =>
     }
     console.log(err.stack);
     res.status(err.status);
-    res.render('error', {error: err});
+    res.render('./main/error', {error: err});
 });
 
 // start server

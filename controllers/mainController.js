@@ -5,14 +5,17 @@ const router = express.Router();
 
 exports.index = (req, res) =>
 {
-    const stories = model.find();
-    res.render('./index');
+    res.render('./main/index');
 };
 
 // /GET index: homepage of MM
 
-exports.index = (req, res) =>
+exports.about = (req, res) =>
 {
-    const stories = model.find();
-    res.render('./');
+    res.render('./main/about');
 };
+
+exports.contact = (req, res) =>
+{
+    res.render('./main/contact')
+}
