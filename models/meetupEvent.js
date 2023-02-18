@@ -10,10 +10,10 @@ const events = [
         hostName: 'Sudhamsh Mondrati',
         category: 'Action',
         startTime: DateTime.fromObject({year: 2022, month:2, day: 20, hour:10, minute: 30})
-        .toLocaleString(DateTime.DATETIME_FULL.DATETIME_MED),
+        .toLocaleString(DateTime.DATETIME_MED),
         endTime: DateTime.fromObject({year: 2022, month:2, day: 20, hour:13, minute: 0})
-        .toLocaleString(DateTime.DATETIME_FULL.DATETIME_MED),
-        image: 'free-guy.png'
+        .toLocaleString(DateTime.DATETIME_MED),
+        image: 'images/free-guy.jpg'
     },
     {
         id: '2',
@@ -21,10 +21,10 @@ const events = [
         details: "A second movie",
         hostName: 'Sudhamsh Mondrati',
         startTime: DateTime.fromObject({year: 2022, month:2, day: 24, hour:7, minute: 30})
-        .toLocaleString(DateTime.DATETIME_FULL.DATETIME_MED),
+        .toLocaleString(DateTime.DATETIME_MED),
         category: 'Romance',
         endTime: DateTime.fromObject({year: 2022, month:2, day: 24, hour:9, minute: 30})
-        .toLocaleString(DateTime.DATETIME_FULL.DATETIME_MED),
+        .toLocaleString(DateTime.DATETIME_MED),
         image: 'movie.png'
     },
 ]
@@ -33,3 +33,13 @@ exports.find = function ()
 {
     return events;
 }
+
+exports.findByid = (id) => events.find(event => event.id === id)
+
+exports.save = (event) =>
+{
+    event.id = uuidv4();
+    events.push(event);
+}
+
+// console.log(events)

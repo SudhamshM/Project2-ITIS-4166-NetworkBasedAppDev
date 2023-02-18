@@ -7,7 +7,7 @@ const model = require('../models/meetupEvent')
 exports.index = (req, res) =>
 {
     const stories = model.find();
-    res.render('./event/index');
+    res.render('./event/index', {stories});
 };
 
 exports.new = (req, res) =>
@@ -17,7 +17,10 @@ exports.new = (req, res) =>
 
 exports.create = (req, res) =>
 {
-    res.render('./event/new');
+    let event = req.body;
+    console.log(event);
+    model.save(event);
+    res.redirect('/events')
 };
 
 exports.show = (req, res) =>
