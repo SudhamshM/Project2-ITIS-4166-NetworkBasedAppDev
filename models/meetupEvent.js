@@ -36,6 +36,8 @@ exports.find = function ()
 
 exports.findByid = (id) => events.find(event => event.id === id)
 
+exports.findByGenre = (genre) => events.filter(event => event.category === genre)
+
 exports.save = (event) =>
 {
     event.id = uuidv4();

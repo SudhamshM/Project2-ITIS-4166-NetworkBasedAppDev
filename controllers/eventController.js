@@ -6,8 +6,8 @@ const model = require('../models/meetupEvent')
 
 exports.index = (req, res) =>
 {
-    const stories = model.find();
-    res.render('./event/index', {stories});
+    let categoryStories = {action: model.findByGenre('Action'), romance: model.findByGenre('Romance')}
+    res.render('./event/index', {stories: categoryStories});
 };
 
 exports.new = (req, res) =>
