@@ -35,7 +35,6 @@ exports.show = (req, res, next) =>
     {
         let err = new Error("Cannot find event with id " + id);
         err.status = 404;
-        console.log(err);
         next(err);
     }
     
