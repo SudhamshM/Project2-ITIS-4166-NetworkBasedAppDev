@@ -13,7 +13,8 @@ const events = [
         .toLocaleString(DateTime.DATETIME_MED),
         endTime: DateTime.fromObject({year: 2022, month:2, day: 20, hour:13, minute: 0})
         .toLocaleString(DateTime.DATETIME_MED),
-        image: 'images/free-guy.jpg'
+        image: 'images/free-guy.jpg',
+        location: 'Woodward Hall'
     },
     {
         id: '2',
@@ -25,7 +26,8 @@ const events = [
         category: 'Romance',
         endTime: DateTime.fromObject({year: 2022, month:2, day: 24, hour:9, minute: 30})
         .toLocaleString(DateTime.DATETIME_MED),
-        image: 'movie.png'
+        image: 'movie.png',
+        location: 'Student Union'
     },
 ]
 
@@ -40,6 +42,7 @@ exports.findByGenre = (genre) => events.filter(event => event.category === genre
 
 exports.save = (event) =>
 {
+    console.log(event)
     event.id = uuidv4();
     events.push(event);
 }

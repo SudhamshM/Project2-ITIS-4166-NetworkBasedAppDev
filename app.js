@@ -27,8 +27,10 @@ app.get('/', (req, res) =>
     res.render('./main/index');
 });
 
+
 app.use('/', mainRoutes);
 app.use('/events', eventRoutes)
+
 
 // handling 404 errors
 app.use((req, res, next) =>

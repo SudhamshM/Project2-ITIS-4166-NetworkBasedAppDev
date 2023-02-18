@@ -1,8 +1,7 @@
 <%- include('../partials/header.ejs') %>
         <div class="container">
-            
             <div class="pt-1 mb-2">
-            <h4 class="mb-0 text-center">Action Genre: Free Guy (2021)
+            <h4 class="mb-0 text-center"><%= event.category %> Genre: <%= event.title %>
                 <button class="btn btn-lg btn-success">
                 <i class="fa-solid fa-pen-to-square"></i></button>
                 <button class="btn btn-lg btn-danger">
@@ -12,16 +11,16 @@
             </div>
             <!-- Used card model from bootstrap -->
             <div class="col d-flex justify-content-center">
-            <div class="card mb-2">
-                <img class="card-img-top" src="images/free-guy.jpg" alt="Free guy movie poster" style="object-fit: cover;" width="286" height="398">
+            <div class="card mb-2 w-50">
+                <img class="card-img-top" src="/images/free-guy.jpg" alt="Free guy movie poster" style="object-fit: cover;" width="286" height="398">
                 <div class="card-body">
-                  <h5 class="card-title">Free Guy</h5>
-                  <p class="card-text">A bank teller discovers that he's actually an NPC inside a brutal, open world video game.</p>
+                  <h5 class="card-title"><%= event.title %></h5>
+                  <p class="card-text"><%= event.description %></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><strong>Host: </strong> Sudhamsh Mondrati</li>
-                  <li class="list-group-item"><strong>Date & Time: </strong> February 10, 2023</li>
-                  <li class="list-group-item"><strong>Location: </strong> Woodward 106, UNC Charlotte</li>
+                  <li class="list-group-item"><strong>Host: </strong> <%= event.hostName %></li>
+                  <li class="list-group-item"><strong>Date & Time: </strong> <%= event.startTime %></li>
+                  <li class="list-group-item"><strong>Location: </strong> <%= event.location %></li>
                 </ul>
                 <div class="card-body">
                   <a href="#" class="card-link">Watch trailer</a>

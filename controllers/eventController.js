@@ -17,15 +17,28 @@ exports.new = (req, res) =>
 
 exports.create = (req, res) =>
 {
-    let event = req.body;
+    let event = req;
     console.log(event);
     model.save(event);
     res.redirect('/events')
 };
 
-exports.show = (req, res) =>
+exports.show = (req, res, next) =>
 {
-    res.render('./event/new');
+    let id = req.params.id;
+    let event = model.findByid(id);
+    if (event)
+    {
+        res.render('./event/event', {event})
+    }
+    else
+    {
+        let err = new Error("Cannot find event with id " + id);
+        err.status = 404;
+        console.log(err);
+        next(err);
+    }
+    
 };
 
 exports.edit = (req, res) =>
