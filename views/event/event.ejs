@@ -4,8 +4,9 @@
             <h4 class="mb-0 text-center"><%= event.category %> Genre: <%= event.title %>
                 <button class="btn btn-lg btn-success">
                 <i class="fa-solid fa-pen-to-square"></i></button>
-                <button class="btn btn-lg btn-danger">
+                <a href="/delete" class="btn btn-lg btn-danger" title="Delete movie event">
                 <i class="fa-solid fa-trash-can"></i>
+              </a>
             </button>
             </h4>
             </div>
@@ -19,7 +20,8 @@
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item"><strong>Host: </strong> <%= event.hostName %></li>
-                  <li class="list-group-item"><strong>Date & Time: </strong> <%= event.startTime %></li>
+                  <li class="list-group-item"><strong>Start Time: </strong> <%= event.startTime %></li>
+                  <li class="list-group-item"><strong>End Time: </strong> <%= event.endTime %></li>
                   <li class="list-group-item"><strong>Location: </strong> <%= event.location %></li>
                 </ul>
                 <div class="card-body">

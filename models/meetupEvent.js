@@ -42,9 +42,11 @@ exports.findByGenre = (genre) => events.filter(event => event.category === genre
 
 exports.save = (event) =>
 {
-    console.log(event)
     event.id = uuidv4();
+    let unparsedDate = event.startTime;
+    let parsedDate = DateTime.fromJSDate(new Date(unparsedDate)).toLocaleString(DateTime.DATETIME_MED);
+    event.startTime = parsedDate;
     events.push(event);
 }
 
-// console.log(events)
+console.log(events)

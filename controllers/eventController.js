@@ -17,7 +17,7 @@ exports.new = (req, res) =>
 
 exports.create = (req, res) =>
 {
-    let event = req;
+    let event = req.body;
     console.log(event);
     model.save(event);
     res.redirect('/events')
