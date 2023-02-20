@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const controller = require('../controllers/eventController');
+const {fileUpload} = require('../middleware/fileUpload')
 
 // /GET stories: send all stories to user
 
@@ -12,7 +13,7 @@ router.get('/', controller.index);
 router.get('/new', controller.new);
 
 // /POST /stories create a new story
-router.post('/', controller.create);
+router.post('/', fileUpload, controller.create);
 
 // GET /stories/:id - send details of story with id
 router.get('/:id', controller.show)

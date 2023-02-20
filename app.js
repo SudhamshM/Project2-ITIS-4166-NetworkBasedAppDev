@@ -6,7 +6,6 @@ const eventRoutes = require('./routes/eventRoutes');
 const mainRoutes = require('./routes/mainRoutes');
 
 
-
 // create application
 const app = express();
 

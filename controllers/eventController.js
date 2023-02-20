@@ -1,6 +1,7 @@
 const express = require('express');
-const router = express.Router();
 const model = require('../models/meetupEvent')
+
+
 
 // /GET stories: send all stories to user
 
@@ -15,7 +16,7 @@ exports.new = (req, res) =>
     res.render('./event/new');
 };
 
-exports.create = (req, res) =>
+exports.create = (req, res, next) =>
 {
     let event = req.body;
     console.log(event);
@@ -40,9 +41,20 @@ exports.show = (req, res, next) =>
     
 };
 
-exports.edit = (req, res) =>
+exports.edit = (req, res, next) =>
 {
-    res.render('./event/new');
+    let id = req.params.id;
+    let event = model.findByid(id);
+    if (event)
+    {
+        res.render('./event/edit', {event});
+    }
+    else
+    {
+        let err = new Error("Cannot find event with id " + id);
+        err.status = 404;
+        next(err);
+    }
 };
 
 exports.update = (req, res) =>
