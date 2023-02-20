@@ -22,7 +22,7 @@ router.get('/:id', controller.show)
 router.get('/:id/edit', controller.edit)
 
 // /PUT /stories/:id - edit post with id
-router.put('/:id', controller.update)
+router.put('/:id', fileUpload, controller.update)
 
 
 // /DELETE /stories/:id - delete post with id

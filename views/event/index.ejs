@@ -1,25 +1,16 @@
 <%- include('../partials/header.ejs') %>
 <div class="container p-2">
-    <img src="<%= typeof image !== 'undefined' ? 'images/'+image : '' %>" alt="" width="<%= typeof image !== 'undefined' ? '200' : '' %>" height="<%= typeof image !== 'undefined' ? '300' : '' %>">
-    <h3>Action Genre</h3>
-    <% if (stories.action.length) { %>
-    <ul class="ml-3 list-group">
-        <% stories.action.forEach(story => { %>
-        <li class="list-group-item list-group-item-action"><a href="/events/<%= story.id %>" class="list-group-item-action"><%= story.title %></a></li>
-        <% }) %>
-    </ul>
-    <% } else { %>
+    <% Object.keys(eventObject).forEach(genre=> { %>
+     <h3><%= genre %></h3>
+     <% if (eventObject[genre]) { %>
+        <ul class="ml-3 list-group">
+            <% eventObject[genre].forEach(story => { %>
+            <li class="list-group-item list-group-item-action"><a href="/events/<%= story.id %>" class="list-group-item-action"><%= story.title %></a></li>
+            <% }) %>
+        </ul>
+     <% } else { %>
         <p>No movies in this genre.</p>
     <% } %>
-    <h3>Romance Genre</h3>
-    <% if (stories.romance.length) { %>
-    <ul class="list-group ml-3">
-        <% stories.romance.forEach(story => { %>
-            <li class="list-group-item list-group-item-action"><a href="/events/<%= story.id %>" class="list-group-item-action"><%= story.title %></a></li>
-        <% }) %>
-    </ul>
-    <% } else { %>
-        <p>No movies in this genre.</p>
-        <% } %>
+    <% }) %>
 </div>
 <%- include('../partials/footer.ejs') %>

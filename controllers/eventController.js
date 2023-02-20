@@ -8,7 +8,8 @@ const model = require('../models/meetupEvent')
 exports.index = (req, res) =>
 {
     let categoryStories = {action: model.findByGenre('Action'), romance: model.findByGenre('Romance')}
-    res.render('./event/index', {stories: categoryStories});
+    let eventObject = model.findAll();
+    res.render('./event/index', {stories: categoryStories, eventObject});
 };
 
 exports.new = (req, res) =>
@@ -19,12 +20,12 @@ exports.new = (req, res) =>
 exports.create = (req, res, next) =>
 {
     let event = req.body;
-    event.image = req.file.filename;
+    event.image = "images/" + req.file.filename;
     model.save(event);
     let image = req.file.filename;
     console.log("image: " + image);
-    let categoryStories = {action: model.findByGenre('Action'), romance: model.findByGenre('Romance')}
-    res.render('./event/index', {stories: categoryStories, image})
+    // let categoryStories = {action: model.findByGenre('Action'), romance: model.findByGenre('Romance')}
+    res.render('./event/event', {event})
 };
 
 exports.show = (req, res, next) =>
@@ -60,12 +61,31 @@ exports.edit = (req, res, next) =>
     }
 };
 
-exports.update = (req, res) =>
-{
-    res.render('./event/new');
+exports.update = (req, res, next) => {
+    let event = req.body;
+    let id = req.params.id;
+    event.image = "images/" + req.file.filename;
+    if (model.updateById(id, event)) 
+    {
+        console.log("updated movie event");
+        res.render('./event/event', {event});
+    } 
+    else {
+        let err = new Error('Cannot find a event with id ' +id);
+        err.status = 404;
+        next(err);
+    }
 };
 
-exports.delete = (req, res) =>
+exports.delete = (req, res, next) =>
 {
-    res.render('./event/new');
+    let id = req.params.id;
+    let event = model.find(id);
+    if (model.deleteById(id)) {
+        res.redirect('/events');
+    } else {
+        let err = new Error('Cannot find a event with id ' +id);
+        err.status = 404;
+        next(err);
+    }
 };
