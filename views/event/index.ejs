@@ -1,5 +1,6 @@
 <%- include('../partials/header.ejs') %>
 <div class="container p-2">
+    <img src="<%= typeof image !== 'undefined' ? 'images/'+image : '' %>" alt="" width="<%= typeof image !== 'undefined' ? '200' : '' %>" height="<%= typeof image !== 'undefined' ? '300' : '' %>">
     <h3>Action Genre</h3>
     <% if (stories.action.length) { %>
     <ul class="ml-3 list-group">

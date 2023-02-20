@@ -19,9 +19,12 @@ exports.new = (req, res) =>
 exports.create = (req, res, next) =>
 {
     let event = req.body;
-    console.log(event);
+    event.image = req.file.filename;
     model.save(event);
-    res.redirect('/events')
+    let image = req.file.filename;
+    console.log("image: " + image);
+    let categoryStories = {action: model.findByGenre('Action'), romance: model.findByGenre('Romance')}
+    res.render('./event/index', {stories: categoryStories, image})
 };
 
 exports.show = (req, res, next) =>
