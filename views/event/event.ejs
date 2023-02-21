@@ -3,8 +3,8 @@
             <div class="pt-1 mb-2">
             <h4 class="mb-0 text-center"><%= event.category %> Genre: <%= event.title %>
                 <form>
-                  <input type="submit" formaction="<%= event.id %>?_method=DELETE" formmethod="post" value="Delete" class="btn btn-lg btn-danger" title="Delete movie event"">
-                  <input type="submit" formaction="<%= event.id %>/edit" formmethod="get" value="Edit" class="btn btn-lg btn-success">  
+                  <input type="submit" formaction="/events/<%= event.id %>?_method=DELETE" formmethod="post" value="Delete" class="btn btn-lg btn-danger" title="Delete movie event"">
+                  <input type="submit" formaction="/events/<%= event.id %>/edit" formmethod="get" value="Edit" class="btn btn-lg btn-success">  
                 </form>
             </button>
             </h4>

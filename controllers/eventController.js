@@ -68,7 +68,7 @@ exports.update = (req, res, next) => {
     if (model.updateById(id, event)) 
     {
         console.log("updated movie event");
-        res.render('./event/event', {event});
+        res.redirect('/events/' + id);
     } 
     else {
         let err = new Error('Cannot find a event with id ' +id);
