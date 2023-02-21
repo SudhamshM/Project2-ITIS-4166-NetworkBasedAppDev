@@ -7,7 +7,7 @@
                     <label for="category" class="col-sm-2 col-form-label">Category</label>
                     <div class="col-sm-10">
                         <select class="form-select" id="category" name="category" required>
-                            <option selected disabled value="selectCategory">-- Select a category --</option>
+                            <option disabled value="Other">Old Genre = <%= event.category %></option>
                             <option value="Action"  <%= event.category == 'Action' ? 'disabled' : '' %>>Action</option>
                             <option value="Romance" <%= event.category == 'Romance' ? 'disabled' : '' %>>Romance</option>
                             <option value="Comedy" <%= event.category == 'Comedy' ? 'disabled' : '' %>>Comedy</option>
