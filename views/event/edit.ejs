@@ -47,13 +47,13 @@
                 <div class="form-group row m-2">
                     <label for="movieEventStart" class="col-sm-2 col-form-label">Start</label>
                     <div class="col-sm-10">
-                        <input type="datetime-local" name="startTime" class="form-control" id="movieEventStart" required>
+                        <input type="datetime-local" name="startTime" class="form-control" id="movieEventStart" value="<%= new Date(event.startTime).toISOString().replace('Z', '') %>" required>
                     </div>
                 </div>
                 <div class="form-group row m-2">
                     <label for="movieEventEnd" class="col-sm-2 col-form-label">End</label>
                     <div class="col-sm-10">
-                        <input type="datetime-local" name="endTime" class="form-control" id="movieEventEnd" required>
+                        <input type="datetime-local" name="endTime" class="form-control" id="movieEventEnd" value="<%= new Date(event.endTime).toISOString().replace('Z', '') %>" required>
                     </div>
                 </div>
                 <div class="form-group row m-2">
