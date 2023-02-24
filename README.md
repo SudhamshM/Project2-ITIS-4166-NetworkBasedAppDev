@@ -2,6 +2,8 @@
 
 An extension of Project 1, with a major improvement in using Express.js in accordance with the MVC architecture.
 
+Deployed to Render now! Check it out here (https://project2moviemeetup.onrender.com)
+
 Screenshots (zoomed out)
 1.	Home Page
 -	 ![image](https://user-images.githubusercontent.com/88403902/220412783-77e99ad2-5c69-4a91-8d25-7cd44b92dc72.png)
